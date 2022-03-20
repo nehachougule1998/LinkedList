@@ -1,10 +1,11 @@
 package com.bridgelabz;
+
 public class LinkedList {
-	
+
 	Node head;
 	Node tail;
 	
-   public void add(int data) {
+	public void add(int data) {
 		Node newNode = new Node(data);
 		if(head == null) {
 			head = newNode;
@@ -16,13 +17,23 @@ public class LinkedList {
 			tail = newNode;
 		}	
 	}
-   public class Node {
-		int data;
-		Node next;
-		
-        public Node(int data) {
-			this.data = data;
-			this.next = null;
+	
+	public void show() {
+		Node  temp = head;
+		while(temp != null) {
+			System.out.print(temp.data +" ");
+			temp = temp.next;
 		}
+	}
+}
+
+class Node {
+	
+	int data;
+	Node next;
+	
+	public Node(int data) {
+		this.data = data;
+		this.next = null;
 	}
 }
