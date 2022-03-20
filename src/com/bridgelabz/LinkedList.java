@@ -38,9 +38,25 @@ public class LinkedList {
 			tail = newNode;
 		}	
 	}
-
+	
+	public void insertMiddle(int data) {
+		Node newNode = new Node(data);
+		if(head == null) {
+		}
+		else {
+			 Node temp = head;
+	           Node middle = head;
+	            while (temp.next != null && temp.next.next != null)
+	            {
+	                temp = temp.next.next;
+	                middle = middle.next;
+	            }
+	            newNode.next = middle.next;
+	            middle.next = newNode;
+		}
+	}	
 }
- class Node {
+class Node {
 	
 	int data;
 	Node next;
@@ -50,4 +66,3 @@ public class LinkedList {
 		this.next = null;
 	}
 }
-
