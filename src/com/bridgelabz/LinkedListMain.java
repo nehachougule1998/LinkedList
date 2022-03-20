@@ -5,7 +5,7 @@ public class LinkedListMain {
 public static void main(String[] args) {
 	
 		System.out.println("welcome to Data structure linked list program");
-		LinkedListMain list = new LinkedListMain();
+		LinkedList list = new LinkedList();
 		list.add(56);
 		list.add(30);
 		list.add(70);
