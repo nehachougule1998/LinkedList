@@ -1,7 +1,6 @@
 package com.bridgelabz;
 
 public class LinkedList {
-
 	Node head;
 	Node tail;
 	
@@ -39,7 +38,7 @@ public class LinkedList {
 		}	
 	}
 	
-	public void insertMiddle(int data) {
+	public void insertAtMiddle(int data) {
 		Node newNode = new Node(data);
 		if(head == null) {
 		}
@@ -54,15 +53,12 @@ public class LinkedList {
 	            newNode.next = middle.next;
 	            middle.next = newNode;
 		}
-	}	
-}
-class Node {
+	}
 	
-	int data;
-	Node next;
-	
-	public Node(int data) {
-		this.data = data;
-		this.next = null;
+	public void pop() {
+		if(head == null) {
+			System.out.print("empty");
+		}
+		head = head.next;
 	}
 }

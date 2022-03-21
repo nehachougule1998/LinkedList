@@ -1,16 +1,19 @@
 package com.bridgelabz;
 
-public class LinkedListMain {
+public class LinkedListmain {
 
-	public static void main(String[] args) {
-		System.out.println("welcome to linked list program");
+public static void main(String[] args) {
+		
 		LinkedList list = new LinkedList();
 		list.append(56);
 		list.append(70);
 		list.show();
-		
-		list.insertMiddle(30);
-		list.show();		
+		System.out.println();
+		list.insertAtMiddle(30);
+		list.show();	
+		System.out.println();
+		list.pop();
+		list.show();			
 	}
 
 }
