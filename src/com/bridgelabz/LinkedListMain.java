@@ -12,7 +12,7 @@ public static void main(String[] args) {
 		list.insertAtMiddle(30);
 		list.show();	
 		System.out.println();
-		list.pop();
+		list.popLastelement();
 		list.show();			
 	}
 
