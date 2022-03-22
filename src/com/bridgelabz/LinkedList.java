@@ -76,19 +76,41 @@ public class LinkedList {
         return head;
 	}
 
-      public static boolean empty() {
-        return true;
-      }
-    
-      public static void push(int data) {
-    	  Node newNode = new Node(data);
-    	  if(empty()) {
-    		  head = newNode;
-    		  return;
-    	  }
-    	  
-    	  }
+
+public static boolean isempty() {
+	if(head == null) {
+		 return true;	
+	}
+    return false;
 }
-      
-      
-       
+
+public static void push(int data) {
+	  Node newNode = new Node(data);
+	  if(isempty()) {
+		  head = newNode;
+		  return;
+	  }
+	  newNode.next = head;
+	  head = newNode;
+	  }
+
+public static int pop() {
+	if(isempty()) {
+		return -1;
+	}
+	int top = head.data;
+	head = head.next;
+	return top;
+}
+
+public static int peek() {
+	if(isempty()) {
+		return -1;
+	}
+	return head.data;
+}
+	
+	}
+
+   	
+
