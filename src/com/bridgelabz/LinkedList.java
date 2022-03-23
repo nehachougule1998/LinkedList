@@ -41,10 +41,11 @@ public class LinkedList {
 	public void insertAtMiddle(int data) {
 		Node newNode = new Node(data);
 		if(head == null) {
+			
 		}
 		else {
 			 Node temp = head;
-	           Node middle = head;
+	         Node middle = head;
 	            while (temp.next != null && temp.next.next != null)
 	            {
 	                temp = temp.next.next;
@@ -55,7 +56,6 @@ public class LinkedList {
 		}
 	}
 	
-
 	public void popFirstelement() {
 		if(head == null) {
 			System.out.print("is empty");
@@ -67,12 +67,25 @@ public class LinkedList {
 		if(head == null || head.next == null) {
 			return null;
 		}
-		Node temp = head;
+		
+        Node temp = head;
         while(temp.next.next != null) {
             temp = temp.next;
         }
+        
         temp.next = null;
  
         return head;
+	}
+	
+	public boolean searchNode(int node) {
+		Node current = head;
+		while(current != null) {
+			if(current.data == node) {
+				return true;
+			}
+		   current = current.next;
+		}   
+		return false;
 	}
 }
