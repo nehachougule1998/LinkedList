@@ -1,7 +1,6 @@
 package com.bridgelabz;
 
 public class LinkedList {
-
 	static Node head;
 	Node tail;
 	
@@ -67,7 +66,6 @@ public class LinkedList {
 		if(head == null || head.next == null) {
 			return null;
 		}
-		// Find the second last node
         Node temp = head;
         while(temp.next.next != null) {
             temp = temp.next;
@@ -113,7 +111,9 @@ public class LinkedList {
 	        newNode.next = temp.next;
 	        temp.next = newNode;  
 	      } else {
-	      }       
+	      }
+	     }
 	   }
 }    
-}
+
+
