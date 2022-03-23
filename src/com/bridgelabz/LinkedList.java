@@ -1,10 +1,11 @@
 package com.bridgelabz;
 
 public class LinkedList {
-	Node head;
+
+	static Node head;
 	Node tail;
 	
-	public void add(int data) {
+	protected void add(int data) {
 		Node newNode = new Node(data);
 		if(head == null) {
 			head = newNode;
@@ -25,7 +26,7 @@ public class LinkedList {
 		}
 	}
 	
-	public void append(int data) {
+	protected void append(int data) {
 		Node newNode = new Node(data);
 		if(head == null) {
 			head = newNode;
@@ -38,14 +39,13 @@ public class LinkedList {
 		}	
 	}
 	
-	public void insertAtMiddle(int data) {
+	protected void insertAtMiddle(int data) {
 		Node newNode = new Node(data);
 		if(head == null) {
-			
 		}
 		else {
 			 Node temp = head;
-	         Node middle = head;
+	           Node middle = head;
 	            while (temp.next != null && temp.next.next != null)
 	            {
 	                temp = temp.next.next;
@@ -56,29 +56,28 @@ public class LinkedList {
 		}
 	}
 	
-	public void popFirstelement() {
+	protected void popFirst() {
 		if(head == null) {
 			System.out.print("is empty");
 		}
 		head = head.next;
 	}
 	
-	public Node popLastelement() {
+	protected Node popLast() {
 		if(head == null || head.next == null) {
 			return null;
 		}
-		
+		// Find the second last node
         Node temp = head;
         while(temp.next.next != null) {
             temp = temp.next;
         }
-        
         temp.next = null;
  
         return head;
 	}
 	
-	public boolean searchNode(int node) {
+	protected boolean searchNode(int node) {
 		Node current = head;
 		while(current != null) {
 			if(current.data == node) {
@@ -87,5 +86,34 @@ public class LinkedList {
 		   current = current.next;
 		}   
 		return false;
-	}
+	}	
+	
+
+	public void insertAtPosition(int newElement, int position) {
+			
+		Node newNode = new Node(position); 
+	    newNode.data = newElement;
+	    newNode.next = null;
+
+	    if(position < 1) {
+	    } else if (position == 1) {
+	      newNode.next = head;
+	      head = newNode;
+	    } else {
+	      
+	      Node temp = new Node(position);
+	      temp = head;
+	      for(int i = 1; i < position-1; i++) {
+	        if(temp != null) {
+	          temp = temp.next;
+	        }
+	      }
+	   
+	      if(temp != null) {
+	        newNode.next = temp.next;
+	        temp.next = newNode;  
+	      } else {
+	      }       
+	   }
+}    
 }
