@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 public class LinkedList {
+
 	static Node head;
 	Node tail;
 	static int size;
@@ -169,4 +170,5 @@ public class LinkedList {
 	}
 	
 }
+
 
