@@ -27,7 +27,7 @@ public class LinkedList {
 		}
 	}
 	
-	protected void append(int data) {
+	public void append(int data) {
 		Node newNode = new Node(data);
 		if(head == null) {
 			head = newNode;
