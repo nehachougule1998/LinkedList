@@ -27,7 +27,7 @@ public class LinkedList {
 		}
 	}
 	
-	protected void append(int data) {
+	public void append(int data) {
 		Node newNode = new Node(data);
 		if(head == null) {
 			head = newNode;
@@ -57,7 +57,7 @@ public class LinkedList {
 		}
 	}
 	
-	protected void popFirst() {
+	public static void popFirst() {
 		if(head == null) {
 			System.out.print("is empty");
 		}
@@ -69,12 +69,12 @@ public class LinkedList {
 		if(head == null || head.next == null) {
 			return null;
 		}
-		// Find the second last node
 		size--;
         Node temp = head;
         while(temp.next.next != null) {
             temp = temp.next;
         }
+        // change the second last node next pointer to null
         temp.next = null;
  
         return head;
@@ -92,7 +92,7 @@ public class LinkedList {
 	}	
 	
 
-	public void insertAtPosition(int newElement, int position) {
+	protected void insertAtPosition(int newElement, int position) {
 			
 		Node newNode = new Node(position); 
 	    newNode.data = newElement;
@@ -120,7 +120,7 @@ public class LinkedList {
 	   }
 	}
 	
-	public void removeElements(int key) {
+	protected void removeElements(int key) {
 		Node current = head;
 		Node temp = null;
 		
@@ -140,7 +140,7 @@ public class LinkedList {
 		size--;
 	}
 	
-	public void sortList() {
+	protected void sortList() {
 		Node current = head;
 		Node index = null;
 		int temp;
@@ -169,6 +169,46 @@ public class LinkedList {
 		return size;
 	}
 	
+	public static boolean isEmpty() {
+		if(head == null) {
+			return true;
+		}
+		return false;
+	}
+	
+	public static void push(int data) {
+		Node newNode = new Node(data);
+		if(isEmpty()) {
+			head = newNode;
+			return;
+		}
+		newNode.next = head;
+		head = newNode;
+	}
+	
+	public static int pop() {
+		if(isEmpty()) {
+			return -1;
+		}
+		int top = head.data;
+		head = head.next;
+		return top;
+	}
+	
+	public static int peek() {
+		if(isEmpty()) {
+			return -1;
+		}
+		return head.data;
+	}
+	
+	public void dequeue() {
+		popFirst();
+	}
+	
+	
+	
+	
+	
 }
-
 

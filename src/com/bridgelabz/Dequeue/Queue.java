@@ -1,4 +1,4 @@
-package com.bridgelabz;
+package com.bridgelabz.Dequeue;
 
 import com.bridgelabz.LinkedList;
 import com.bridgelabz.Node;
