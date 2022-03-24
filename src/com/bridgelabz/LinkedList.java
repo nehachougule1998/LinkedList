@@ -1,9 +1,9 @@
 package com.bridgelabz;
 
 public class LinkedList {
-
 	static Node head;
 	Node tail;
+	static int size;
 	
 	protected void add(int data) {
 		Node newNode = new Node(data);
@@ -61,13 +61,14 @@ public class LinkedList {
 			System.out.print("is empty");
 		}
 		head = head.next;
+		size--;
 	}
 	
 	protected Node popLast() {
 		if(head == null || head.next == null) {
 			return null;
 		}
-		// Find the second last node
+		size--;
         Node temp = head;
         while(temp.next.next != null) {
             temp = temp.next;
@@ -115,5 +116,33 @@ public class LinkedList {
 	      } else {
 	      }       
 	   }
-}    
+	}
+	
+	public void removeElements(int key) {
+		Node current = head;
+		Node temp = null;
+		
+		if(current != null  && current.data == key) {
+			head = current.next;
+			return;
+		}
+		
+		while(current != null  && current.data != key) {
+			temp = current;
+			current = current.next;
+		}
+		if(current == null) {
+			return;
+		}
+		temp.next = current.next;
+		size--;
+	}
+	
+	public int getSize() {
+		System.out.println();
+		return size;
+	}
+	
 }
+
+
