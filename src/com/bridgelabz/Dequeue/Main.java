@@ -1,4 +1,4 @@
-package com.bridgelabz;
+package com.bridgelabz.Dequeue;
 
 public class Main {
 
@@ -10,5 +10,9 @@ public static void main(String[] args) {
 	queue.append(30);
 	queue.append(70);
 	queue.show();
+	System.out.println();
+	queue.dequeue();
+	queue.show();
+	
 }
 }
