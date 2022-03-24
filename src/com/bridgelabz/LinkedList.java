@@ -3,8 +3,9 @@ package com.bridgelabz;
 public class LinkedList {
 	static Node head;
 	Node tail;
+	static int size;
 	
-	public void add(int data) {
+	protected void add(int data) {
 		Node newNode = new Node(data);
 		if(head == null) {
 			head = newNode;
@@ -17,7 +18,7 @@ public class LinkedList {
 		}	
 	}
 	
-	public static void show() {
+	public void show() {
 		Node  temp = head;
 		while(temp != null) {
 			System.out.print(temp.data +" ");
@@ -25,7 +26,7 @@ public class LinkedList {
 		}
 	}
 	
-	public void append(int data) {
+	protected void append(int data) {
 		Node newNode = new Node(data);
 		if(head == null) {
 			head = newNode;
@@ -38,7 +39,7 @@ public class LinkedList {
 		}	
 	}
 	
-	public void insertAtMiddle(int data) {
+	protected void insertAtMiddle(int data) {
 		Node newNode = new Node(data);
 		if(head == null) {
 		}
@@ -55,19 +56,21 @@ public class LinkedList {
 		}
 	}
 	
-
-	public void popFirstelement() {
+	protected void popFirst() {
 		if(head == null) {
 			System.out.print("is empty");
 		}
 		head = head.next;
+		size--;
 	}
 	
-	public Node popLastelement() {
+	protected Node popLast() {
 		if(head == null || head.next == null) {
 			return null;
 		}
-		Node temp = head;
+		// Find the second last node
+		size--;
+        Node temp = head;
         while(temp.next.next != null) {
             temp = temp.next;
         }
@@ -75,42 +78,95 @@ public class LinkedList {
  
         return head;
 	}
-
-
-public static boolean isempty() {
-	if(head == null) {
-		 return true;	
-	}
-    return false;
-}
-
-public static void push(int data) {
-	  Node newNode = new Node(data);
-	  if(isempty()) {
-		  head = newNode;
-		  return;
-	  }
-	  newNode.next = head;
-	  head = newNode;
-	  }
-
-public static int pop() {
-	if(isempty()) {
-		return -1;
-	}
-	int top = head.data;
-	head = head.next;
-	return top;
-}
-
-public static int peek() {
-	if(isempty()) {
-		return -1;
-	}
-	return head.data;
-}
 	
-	}
+	protected boolean searchNode(int node) {
+		Node current = head;
+		while(current != null) {
+			if(current.data == node) {
+				return true;
+			}
+		   current = current.next;
+		}   
+		return false;
+	}	
+	
 
-   	
+	public void insertAtPosition(int newElement, int position) {
+			
+		Node newNode = new Node(position); 
+	    newNode.data = newElement;
+	    newNode.next = null;
+
+	    if(position < 1) {
+	    } else if (position == 1) {
+	      newNode.next = head;
+	      head = newNode;
+	    } else {
+	      
+	      Node temp = new Node(position);
+	      temp = head;
+	      for(int i = 1; i < position-1; i++) {
+	        if(temp != null) {
+	          temp = temp.next;
+	        }
+	      }
+	   
+	      if(temp != null) {
+	        newNode.next = temp.next;
+	        temp.next = newNode;  
+	      } else {
+	      }       
+	   }
+	}
+	
+	public void removeElements(int key) {
+		Node current = head;
+		Node temp = null;
+		
+		if(current != null  && current.data == key) {
+			head = current.next;
+			return;
+		}
+		
+		while(current != null  && current.data != key) {
+			temp = current;
+			current = current.next;
+		}
+		if(current == null) {
+			return;
+		}
+		temp.next = current.next;
+		size--;
+	}
+	
+	public void sortList() {
+		Node current = head;
+		Node index = null;
+		int temp;
+		
+		if(head == null) {
+			return;
+		}
+		else {
+			while(current != null) {
+				index = current.next; 
+				while(index != null) {
+					if(current.data > index.data) {
+						temp = current.data;
+						current.data = index.data;
+						index.data = temp;
+					}
+					index = index.next;
+				}
+				current = current.next;
+			}
+		}
+	}
+	
+	public int getSize() {
+		System.out.println();
+		return size;
+	}
+	
+}
 
